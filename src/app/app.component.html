@@ -1,0 +1,39 @@
+
+<div>
+  <h1 style="text-align: center;">{{title}}</h1>
+  <div class="container">
+    <input type="text"  style="width: 35%;" [(ngModel)]="docName" placeholder="Doctors name"/>
+    <button class="button button-default" style="width:20%;margin:30px;" (click)="addFirst(docName)">Add First</button>
+    <button class="button button-default" style="width:20%;margin:30px;" (click)="addLast(docName)">Add Last</button>
+  </div>
+  <div class="container">
+  <table class="table table-bordered">
+   <thead>
+     <tr>
+       <td>SNO</td>
+       <td>Doctor Name<i class="fa fa-angle-up" (click)="sortEle()"></i><i class="fa fa-angle-down" (click)="sortElerev()"></i></td>
+       <td>Sort</td>
+       <td>Operations</td>
+     </tr>
+   </thead>
+<tbody>
+  <tr *ngFor="let x of doctorsname;let i=index">
+    <td>{{i+1}}</td>
+    <td>{{x}}</td>
+    <td>
+      <i class="fa fa-angle-up" (click)="moveUp(i+1)" ></i><i class="fa fa-angle-down" (click)="moveDown(i+1)"></i>
+    </td>
+    <td>
+      <table>
+        <tr style="width:100%;">
+          <button style="margin: 0;">Edit</button>
+          <button style="margin: 0;">Save And sort</button>
+          <button style="margin: 0;"  (click)="delete(i)">Delete</button>
+        </tr>
+  </table>
+    </td>
+  </tr>
+</tbody>
+  </table>
+   </div>
+</div>
